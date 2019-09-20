@@ -25,8 +25,8 @@ programa
 			escolha (telaAtual){
 				
 				caso TELA_MENU		: 	tela_menu()		pare
-				/*caso TELA_JOGO		: 	tela_jogo() 		pare
-				caso TELA_ACERTO	: 	tela_acerto() 		pare
+				caso TELA_JOGO		: 	tela_jogo() 		pare
+				/*caso TELA_ACERTO	: 	tela_acerto() 		pare
 				caso TELA_ERRO		: 	tela_derrota() 	pare*/
 			}
 		}
@@ -40,9 +40,7 @@ programa
 		g.definir_dimensoes_janela(LARGURA_TELA, ALTURA_TELA)
 		
 		carregar_imagens()
-		//carregarSons()
-		//carregar_placar()
-		//carregar_fontes()
+		carregar_fontes()
 	}
 
 	funcao finalizar(){
@@ -50,14 +48,91 @@ programa
 	}
 
 	funcao carregar_imagens(){
-		cadeia diretorio_imagens ="./Imagens/"
-		
-		imagemFundoMenu = g.carregar_imagem(diretorio_imagens + "fundo.jpg")
-		imagemFundoCenario = g.carregar_imagem(diretorio_imagens + "fundo.jpg")
+		cadeia diretorioImagens ="./Imagens/"
+
+		imagemLogotipoPS = g.carregar_imagem(diretorioImagens + "portugol.png")
+		imagemFundoMenu = g.carregar_imagem(diretorioImagens + "fundoMenu.jpg")
+		imagemFundoCenario = g.carregar_imagem(diretorioImagens + "fundo2.jpg")
 	}
 
-	funcao tela_menu(){
+	funcao carregar_fontes(){
+		cadeia diretorioFontes ="./fontes/"
+
+		g.carregar_fonte(diretorioFontes + "poetsen_one_regular.ttf")
+		g.carregar_fonte(diretorioFontes + "Starjedi.ttf")
+		g.carregar_fonte(diretorioFontes + "Starjhol.ttf")
+	}
+
+	funcao tela_menu()
+	{
+		enquanto (telaAtual == TELA_MENU){	
+			desenhar_tela_menu()
+			navegacao_tela_menu()
+		}
+	}
+
+	funcao desenhar_tela_menu(){
+		inteiro posOpcoes = 340
+
+		g.desenhar_imagem(0, 0, imagemFundoMenu)
+		g.definir_fonte_texto("Star Jedi Hollow")
+		g.definir_cor(g.COR_BRANCO)
+		g.definir_tamanho_texto(75.0)
 		
+		desenhar_texto_centralizado("Show", 75)
+		desenhar_texto_centralizado("do", 150)
+		desenhar_texto_centralizado("Visão", 225)
+		g.definir_tamanho_texto(20.0)
+		g.definir_fonte_texto("Poetsen One")
+		g.definir_cor(0x333333)
+		desenhar_texto_centralizado("Utilize as teclas A, B, C e D para responder", posOpcoes + 225)
+		g.definir_fonte_texto("Star Jedi")
+		g.definir_cor(g.COR_BRANCO)
+		
+		desenhar_texto_centralizado("Pressione ENTER para iniciar", posOpcoes + 90)
+		desenhar_texto_centralizado("Pressione ESC para sair", posOpcoes + 120)		
+		g.desenhar_imagem(575, 25, imagemLogotipoPS)
+		
+		g.renderizar()
+	}
+	
+	funcao navegacao_tela_menu()
+	{		
+		se (t.tecla_pressionada(t.TECLA_ENTER))
+		{
+			telaAtual = TELA_JOGO
+		}
+		senao se (t.tecla_pressionada(t.TECLA_ESC))
+		{
+			telaAtual = TELA_SAIR
+		}
+	}
+
+	funcao tela_jogo()
+	{	
+		enquanto (telaAtual == TELA_JOGO)
+		{
+			//ler_controles_do_usuario()
+			desenhar_tela_do_jogo()
+
+			se (t.tecla_pressionada(t.TECLA_ESC))
+			{
+				telaAtual = TELA_MENU
+			}
+		}
+	}
+
+	funcao desenhar_tela_do_jogo()
+	{		
+		g.desenhar_imagem(0, 0, imagemFundoCenario)
+		g.desenhar_imagem(550, 505, imagemLogotipoPS)
+        	
+		g.renderizar()
+	}
+	
+	funcao desenhar_texto_centralizado(cadeia texto, inteiro y)
+	{
+		g.desenhar_texto((LARGURA_TELA/2) - (g.largura_texto(texto) / 2), y, texto)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -65,7 +140,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1247; 
+ * @POSICAO-CURSOR = 1093; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
