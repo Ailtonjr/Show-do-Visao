@@ -4,9 +4,9 @@ programa
 	inclua biblioteca Teclado --> t
 	inclua biblioteca Util --> u
 
-
+	// O projetor deve estar em 1024 * 768 para que funcione corretamente.
 	// Constantes para definir as dimensões da tela do jogo
-	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600
+	const inteiro LARGURA_TELA = 1280, ALTURA_TELA = 920
 
 	// Constantes para definir as telas do jogo 
 	const inteiro TELA_SAIR = 0, TELA_MENU = 1, TELA_JOGO = 2, TELA_ACERTO = 3, TELA_ERRO = 4
@@ -52,7 +52,7 @@ programa
 
 		imagemLogotipoPS = g.carregar_imagem(diretorioImagens + "portugol.png")
 		imagemFundoMenu = g.carregar_imagem(diretorioImagens + "fundoMenu.jpg")
-		imagemFundoCenario = g.carregar_imagem(diretorioImagens + "fundo2.jpg")
+		imagemFundoCenario = g.carregar_imagem(diretorioImagens + "Show-do-visao2.png")
 	}
 
 	funcao carregar_fontes(){
@@ -72,20 +72,20 @@ programa
 	}
 
 	funcao desenhar_tela_menu(){
-		inteiro posOpcoes = 340
+		inteiro posOpcoes = 540
 
-		g.desenhar_imagem(0, 0, imagemFundoMenu)
+		//g.desenhar_imagem(0, 0, imagemFundoMenu)
 		g.definir_fonte_texto("Star Jedi Hollow")
 		g.definir_cor(g.COR_BRANCO)
-		g.definir_tamanho_texto(75.0)
+		g.definir_tamanho_texto(120.0)
 		
 		desenhar_texto_centralizado("Show", 75)
-		desenhar_texto_centralizado("do", 150)
-		desenhar_texto_centralizado("Visão", 225)
+		desenhar_texto_centralizado("do", 180)
+		desenhar_texto_centralizado("Visão", 300)
 		g.definir_tamanho_texto(20.0)
 		g.definir_fonte_texto("Poetsen One")
-		g.definir_cor(0x333333)
-		desenhar_texto_centralizado("Utilize as teclas A, B, C e D para responder", posOpcoes + 225)
+		g.definir_cor(g.COR_BRANCO)
+		desenhar_texto_centralizado("Utilize as teclas A, B, C e D para responder", posOpcoes + 275)
 		g.definir_fonte_texto("Star Jedi")
 		g.definir_cor(g.COR_BRANCO)
 		
@@ -125,7 +125,7 @@ programa
 	funcao desenhar_tela_do_jogo()
 	{		
 		g.desenhar_imagem(0, 0, imagemFundoCenario)
-		g.desenhar_imagem(550, 505, imagemLogotipoPS)
+		g.desenhar_imagem(1000, 850, imagemLogotipoPS)
         	
 		g.renderizar()
 	}
