@@ -149,6 +149,8 @@ programa
 		g.desenhar_imagem(0, 0, imagem_fundo_cenario)
 		g.desenhar_imagem(1000, 850, imagem_LogotipoPS)
 
+
+		//Teste texto fixo para definir tamanho
 		g.definir_tamanho_texto(40.0)
 		g.definir_fonte_texto("Poetsen One")
 		g.definir_cor(g.COR_VERMELHO)
@@ -197,7 +199,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3321; 
+ * @POSICAO-CURSOR = 3926; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
