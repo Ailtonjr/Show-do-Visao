@@ -214,7 +214,7 @@ programa
 		se (tela_atual == TELA_ACERTO)
 		{
 			desenhar_tela_acerto()
-			u.aguarde(2000)
+			u.aguarde(4000)
 			tela_atual = TELA_JOGO
 		}
 	}
@@ -241,7 +241,7 @@ programa
 		se (tela_atual == TELA_ERRO)
 		{
 			desenhar_tela_erro()
-			u.aguarde(2000)
+			u.aguarde(4000)
 			tela_atual = TELA_JOGO
 		}
 	}
@@ -258,6 +258,7 @@ programa
 		g.definir_tamanho_texto(40.0)
 		g.definir_fonte_texto("Poetsen One")
 		desenhar_texto_centralizado("Resposta correta: " + resposta_correta, 660)
+
 		g.renderizar()
 	}
 
@@ -341,7 +342,7 @@ programa
 	*/
 	funcao sortear_pergunta(){
 		// Sorteia um numero entre 0 e 39 e multiplica por 6 para definir a linha correspondente a pergunta;
-		inteiro num_pergunta = ((u.sorteia(0, 39) * 6))
+		inteiro num_pergunta = ((u.sorteia(0, 119) * 6))
 		// Abre o arquivo das perguntas em modo leitura;
 		arquivo_perguntas = a.abrir_arquivo(caminho_do_arquivo, a.MODO_LEITURA)
 
@@ -368,8 +369,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10740; 
- * @DOBRAMENTO-CODIGO = [37, 56, 69, 82, 92, 101, 113, 124, 156, 171, 183, 212, 224, 239, 251, 272, 280];
+ * @POSICAO-CURSOR = 9836; 
+ * @DOBRAMENTO-CODIGO = [56, 69, 82, 92, 101, 124, 156, 224, 239, 273, 281, 317];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
